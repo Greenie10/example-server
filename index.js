@@ -1,32 +1,32 @@
 const { ApolloServer, gql } = require("apollo-server");
 require("./config");
 
-const { Question } = require("./models");
+const { User } = require("./models");
 
 const typeDefs = gql`
-  type Question {
+  type User {
     id: ID!
-    Question: String
-    Location: String
+    Name: String
+    Email: String
   }
 
   type Query {
-    getQuestions: [Question]
+    getNames: [User]
   }
 
   type Mutation {
-    addQuestion(Question: String!, Location: String!): Question
+    addUser(Name: String!, Email: String!): User
   }
 `;
 
 const resolvers = {
   Query: {
-    getQuestions: async () => await Question.find({}).exec()
+    getNames: async () => await User.find({}).exec()
   },
   Mutation: {
-    addQuestion: async (_, args) => {
+    addName: async (_, args) => {
       try {
-        let response = await Question.create(args);
+        let response = await User.create(args);
         return response;
       } catch (e) {
         return e.message;
