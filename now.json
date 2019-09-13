@@ -1,0 +1,13 @@
+{
+  "name": "example-server",
+  "version": 2,
+  "builds": [{ "src": "*.js", "use": "@now/node" }],
+  "env": {
+    "MONGODB_CONNECT": "@mongodb-connect"
+  },
+  "build": {
+    "env": {
+      "MONGODB_CONNECT": "@mongodb-connect"
+    }
+  }
+}
