@@ -21,10 +21,10 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    getNames: async () => await User.find({}).exec()
+    getUsers: async () => await User.find({}).exec()
   },
   Mutation: {
-    addName: async (_, args) => {
+    addUser: async (_, args) => {
       try {
         let response = await User.create(args);
         return response;
